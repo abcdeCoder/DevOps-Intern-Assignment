@@ -116,7 +116,7 @@ Resource requests specify the guaranteed amount of CPU and memory resources for 
 requests:
   memory: "250Mi"
   cpu: "200m"
-
+```
 # Flask and MongoDB on Kubernetes
 
 This repository provides a guide to deploying a Python Flask application with MongoDB on a Kubernetes cluster using Minikube. The deployment is designed to be scalable, resilient, and efficient, leveraging Kubernetes' powerful features like Deployments, StatefulSets, and Horizontal Pod Autoscaling (HPA).
@@ -206,4 +206,4 @@ This repository provides a guide to deploying a Python Flask application with Mo
 
 These design choices and testing scenarios were selected to ensure a robust, scalable, and efficient deployment of the Flask application with MongoDB on Kubernetes. They also highlight the importance of resource management and autoscaling in maintaining application performance and stability under varying loads.
 
-##  Can you explain the benefits of using a virtual environment for python applications?
+  Can you explain the benefits of using a virtual environment for python applications?
