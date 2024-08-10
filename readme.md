@@ -83,33 +83,39 @@ curl http://<minikube_url>/data
 ```
 Replace <minikube_url> with the URL provided by the minikube service command.
 
-# DNS Resolution in Kubernetes
+# Kubernetes Deployment README
 
-In Kubernetes, DNS resolution is used for service discovery and communication between pods. Kubernetes provides a DNS service that automatically assigns DNS names to services. Pods can communicate with services using these DNS names, which resolve to the IP address of the service.
+## Overview
 
-For example, in our deployment:
+This README provides a detailed explanation of DNS resolution and resource management within a Kubernetes cluster, specifically focusing on how these concepts apply to the deployment of a Flask application with MongoDB.
 
-### 1. The Flask application connects to MongoDB using the service name mongo. 
-### 2. This allows the Flask application to communicate with MongoDB seamlessly within the Kubernetes cluster.
+## DNS Resolution in Kubernetes
 
-# Resource Requests and Limits in Kubernetes
-Kubernetes allows you to specify resource requests and limits for containers in a pod:
+Kubernetes offers an integrated DNS service that facilitates service discovery and seamless communication between pods. The DNS service automatically assigns DNS names to Kubernetes services, allowing pods to interact with these services using their DNS names rather than IP addresses.
 
-## Resource Requests
+### Example in Our Deployment:
 
+- **Service Name:** `mongo`
+- **Application:** Flask
+- **Database:** MongoDB
 
-```bash
+In this setup, the Flask application connects to the MongoDB service using the DNS name `mongo`. Kubernetes resolves this name to the cluster IP address of the MongoDB service, enabling the Flask application to communicate with MongoDB efficiently.
+
+This DNS-based service discovery greatly simplifies inter-service communication within the Kubernetes cluster, eliminating the need to manage IP addresses manually.
+
+## Resource Requests and Limits in Kubernetes
+
+Kubernetes allows defining resource requests and limits for containers within pods, ensuring efficient resource allocation and management.
+
+### Resource Requests
+
+Resource requests specify the guaranteed amount of CPU and memory resources for a container. If the requested resources are available, Kubernetes will schedule the pod on a suitable node.
+
+#### Example:
+```yaml
 requests:
   memory: "250Mi"
   cpu: "200m"
-```
-
-```bash
-limits:
-  memory: "500Mi"
-  cpu: "500m"
-
-```
 
 # Flask and MongoDB on Kubernetes
 
